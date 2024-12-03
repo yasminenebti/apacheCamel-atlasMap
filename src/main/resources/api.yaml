@@ -1,0 +1,135 @@
+api:
+  name: "Transaction"
+  version: "v1"
+  baseUrl: "http://10.10.10.10:64/apis"
+
+  headers:
+    - name: ""
+      value: "application/json"
+
+  authorization:
+    enabledTypes:
+      - "Bearer"
+      - "APIKey"
+    types:
+      Bearer:
+        enabled: true
+        header: "Authorization"
+        tokenPrefix: "Bearer"
+        tokenUrl: "token"
+        expiresIn: 3600
+        tokenProvider:
+          script: "/path/script.sh"   # in case we can provide token automatically
+        refreshToken:
+          enabled: true
+          header: "Authorization"
+          tokenPrefix: "Bearer"
+          tokenUrl: "refreshToken"
+          expiresIn: 4800
+          tokenProvider:
+            script: "/path/script.sh"
+
+      APIKey:
+        enabled: true
+        key: "x-api-key"
+        value: "api-key-value"
+        addTo: "header"
+        apiKeyProvider:
+          script: "/path/script.sh"
+
+      Basic:
+        enabled: false
+        header: "Authorization"
+        username: "username"
+        password: "password"
+        encoding: "base64"
+
+      OAuth2:
+        enabled: false
+        clientId: "client_id"
+        clientSecret: "client_secret"
+        tokenUrl: ""
+        scope: "read write"
+        grantType: "client_credentials"
+        redirectUri: ""
+
+  endpoints:
+    - name: "getTransactionsByUserId"
+      description: "Get transaction details by user id"
+      path: "/transactions"
+      method: "GET"
+
+      params:
+        - name: "userId"
+          addTo: "path"
+          type: "String"
+          required: true
+        - name: "limit"
+          addTo: "query"
+          type: "Integer"
+          required: false
+          default: 10
+
+      body:
+        dto: ""
+        format: ""
+        isList: false
+        isMap: false
+      response:
+        dto: "TransactionsResponseDto"
+        format: "json"
+        isList: true
+        isMap: false
+
+    - name: "postTransaction"
+      description: "create a new transaction"
+      path: "/transactions"
+      method: "POST"
+
+      params:
+        - name: "userId"
+          addTo: "path"
+          type: "String"
+          required: true
+          default: ""
+
+      body:
+        dto: "TransactionRequestDto"
+        format: "json"
+        isList: false
+        isMap: false
+      response:
+        dto: "TransactionsResponseDto"
+        format: "json"
+        isList: false
+        isMap: false
+
+  dtos:
+    TransactionRequestDto:
+      fields:
+        - name: ""
+          type: ""
+          validation:
+            required:
+            format: ""
+
+
+    BankResponseDto:
+      fields:
+        - name: ""
+          type: ""
+          validation:
+            required:
+            format: ""
+
+  errors:
+    - code:
+      message: ""
+
+  success:
+    - code:
+      message: ""
+
+  info:
+    - code:
+      message: ""

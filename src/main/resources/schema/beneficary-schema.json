@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Beneficiary",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "string"
+    },
+    "EnteteEvolutionGarantie": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "libelle": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "PRIME": {
+      "type": "number"
+    },
+    "NUMERO_PROPOSITION": {
+      "type": "string"
+    },
+    "PRIME_HORS_TAXE": {
+      "type": "number"
+    },
+    "COUT_DE_POLICE": {
+      "type": "number"
+    },
+    "TAXE": {
+      "type": "number"
+    },
+    "DetailsGarantie": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "CODE_GARANTIE": {
+            "type": "integer"
+          },
+          "CAPITAL_ASSUREE": {
+            "type": "number"
+          },
+          "LIBELLE_GARANTIE": {
+            "type": "string"
+          },
+          "PRIME_COMPTANT": {
+            "type": "number"
+          },
+          "TAUX_REDUCTION": {
+            "type": "number"
+          }
+        }}
+    },
+    "DetailsEvolutionGarantie": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Année": {
+            "type": "integer"
+          },
+          "Cumul Versements": {
+            "type": "number"
+          },
+          "Prime épargnée Bourse": {
+            "type": "number"
+          },
+          "Prime épargné frais": {
+            "type": "number"
+          },
+          "Epargne constituée Bourse (4%)": {
+            "type": "number"
+          },
+          "Participation aux Bénéfices  Bourse": {
+            "type": "number"
+          },
+          "Epargne prévisionnelle Bourse avec PB": {
+            "type": "number"
+          },
+          "Epargne constituée Frais (4%)": {
+            "type": "number"
+          },
+          "Participation aux Bénéfices Frais": {
+            "type": "number"
+          },
+          "Epargne prévisionnelle Frais avec PB": {
+            "type": "number"
+          },
+          "Avantage financier": {
+            "type": "number"
+          },
+          "Avantage fiscal Annuel": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "DetailsEvolutionGarantieHyp2": {
+      "type": ["array", "null"]
+    }
+  }
+}

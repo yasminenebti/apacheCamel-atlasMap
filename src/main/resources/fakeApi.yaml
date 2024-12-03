@@ -1,0 +1,10 @@
+api:
+  endpoint: "https://dummyjson.com/posts/add"
+  method: "POST"
+  headers:
+    Content-Type: "application/json"
+  body: >
+    {
+      "title": "Testing Apache camel with atlas.",
+      "userId": 25
+    }
